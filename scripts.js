@@ -1,19 +1,30 @@
-let todo1 = 'Get groceries';
-let todo2 = 'Wash car';
-let todo3 = 'Make Dinner';
-let todo4 = 'Do laundry';
 
-let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+
+//let todos = ['Get groceries', 'Wash car', 'Make dinner'];
+let todos = [' '];
+
 todos.push('another todo');
 
-function addTodo(todoTitle) {
-    let element = document.createElement('div');
-    element.innerText = todoTitle;
-    document.body.appendChild(element);
-    
+render();
+
+function addTodo() {
+    let textbox = document.getElementById('todo-title');
+    let title = textbox.value;
+    todos.push(title);
+
+    render();
 }
 
-addTodo(todo1);
-addTodo(todo2);
-addTodo(todo3);
+function render(){
+    todos.forEach(function (todoTitle) {
+
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+    
+
+});
+}
+
+//   todos.pop(); .something is a method
 
