@@ -1,29 +1,50 @@
 
 
-//let todos = ['Get groceries', 'Wash car', 'Make dinner'];
-let todos = [' '];
+const todos = [{
+	title: 'Get groceries',
+	dueDate: '2021-10-04'
+}, {
+	title: 'Wash car',
+	dueDate: '2021-02-04'
+}, {
+	title: 'Make Dinner',
+	dueDate: '2021-02-04'
+}];
+
 
 todos.push('another todo');
 
 render();
 
 function addTodo() {
-    let textbox = document.getElementById('todo-title');
-    let title = textbox.value;
-    todos.push(title);
+    const textbox = document.getElementById('todo-title');
+    const title = textbox.value;
+	
+	const datePicker = document.getElementById('date-picker');
+	const dueDate = datePicker.value;
+    
+	
+	todos.push({
+		title: title,
+		dueDate: dueDate
+    });
 
     render();
+
+	
 }
 
-function render(){
+function render() {
 
     // reset list and re-render
-    
-    todos.forEach(function (todoTitle) {
+    document.getElementById('todo-list').innerHTML = ' ';
+	
+    todos.forEach(function (todo) {
 
-        let element = document.createElement('div');
-        element.innerText = todoTitle;
-        document.body.appendChild(element);
+        const element = document.createElement('div');
+        element.innerText = todo.title + ' ' + todo.dueDate;
+		const todoList = document.getElementById('todo-list');
+        todoList.appendChild(element);
     
 
 });
