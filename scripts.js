@@ -16,6 +16,9 @@ function addTodo() {
 }
 
 function render(){
+
+    // reset list and re-render
+    
     todos.forEach(function (todoTitle) {
 
         let element = document.createElement('div');
